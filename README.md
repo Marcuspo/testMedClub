@@ -15,24 +15,15 @@ Para utilizar o Consultas App, siga os seguintes passos:
 
 1. Clone o repositório:
 
-git clone https://github.com/seu-usuario/consultas-app.git
-
-csharp
-Copy code
+```git clone https://github.com/Marcuspo/testMedClub```
 
 2. Instale as dependências:
 
-npm install
-
-markdown
-Copy code
+```yarn```
 
 3. Inicie o aplicativo:
 
-npm start
-
-less
-Copy code
+```yarn start``` or ```yarn android``` or ```yarn iOs```
 
 4. Selecione a plataforma desejada para rodar o aplicativo.
 
@@ -40,8 +31,6 @@ Copy code
 
 - React Native :atom_symbol:
 - React Navigation :round_pushpin:
-- Redux :arrows_counterclockwise:
-- Axios :calling:
 
 ## Contribuição :handshake:
 
