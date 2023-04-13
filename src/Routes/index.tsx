@@ -1,5 +1,5 @@
 import React from 'react';
-import { useColorScheme } from 'react-native'
+import { useColorScheme , View} from 'react-native'
 import { ThemeProvider } from 'styled-components'
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -17,18 +17,18 @@ function App() {
 
      const theme = themes[colorDeviceTheme] || theme.dark
   return (
-    <NavigationContainer>
-     <ThemeProvider theme={theme}>
-          <Stack.Navigator 
-               initialRouteName='Home' 
-               screenOptions={{ 
-                    headerShown: false, 
-               }}>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="AddNewRegistry" component={MedicalAppointment} />
-          </Stack.Navigator>
-      </ThemeProvider>
-    </NavigationContainer>
+     <NavigationContainer>
+          <ThemeProvider theme={theme}>
+               <Stack.Navigator 
+                    initialRouteName='Home' 
+                    screenOptions={{ 
+                         headerShown: false, 
+                    }}>
+                    <Stack.Screen name="Home" component={HomeScreen} />
+                    <Stack.Screen name="AddNewRegistry" component={MedicalAppointment} />
+               </Stack.Navigator>
+          </ThemeProvider>
+     </NavigationContainer>
   );
 }
 

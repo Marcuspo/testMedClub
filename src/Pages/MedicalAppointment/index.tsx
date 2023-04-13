@@ -1,10 +1,13 @@
 import React from 'react';
-import {Text, SafeAreaView} from 'react-native';
+import {Text, SafeAreaView, TouchableOpacity} from 'react-native';
 
-const MedicalAppointment = () => {
+const MedicalAppointment = (props) => {
+     console.log(JSON.stringify(props, null, 2))
      return(
-          <SafeAreaView>
-               <Text>Teste</Text>
+          <SafeAreaView style={{flex: 1}}>
+               <TouchableOpacity onPress={() => props.navigation.goBack()}>
+                    <Text style={{color: 'black'}}>Teste</Text>
+               </TouchableOpacity>
           </SafeAreaView>
      )
 }
