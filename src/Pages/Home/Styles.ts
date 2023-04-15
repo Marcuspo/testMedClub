@@ -24,7 +24,6 @@ export const ItemHourAndSpecialtyAndLocalization = styled(Text)`
 
 export const ItemDate = styled(Text)`
      font-size: ${RFValue(14)}px;
-     font-weight: bold;
      color: ${(props: { theme: { color: any; }; }) => props.theme.color};
 `
 

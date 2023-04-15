@@ -3,7 +3,7 @@ import { useColorScheme , View} from 'react-native'
 import { ThemeProvider } from 'styled-components'
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
 
 import HomeScreen from '../Pages/Home/App'
 import MedicalAppointment from '../Pages/MedicalAppointment/index'
@@ -23,6 +23,9 @@ function App() {
                     initialRouteName='Home' 
                     screenOptions={{ 
                          headerShown: false, 
+                         gestureEnabled: true,
+                         gestureDirection: 'horizontal',
+                         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
                     }}>
                     <Stack.Screen name="Home" component={HomeScreen} />
                     <Stack.Screen name="AddNewRegistry" component={MedicalAppointment} />

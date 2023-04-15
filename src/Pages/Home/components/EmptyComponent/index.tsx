@@ -2,7 +2,7 @@ import { Text } from "react-native-paper"
 
 import * as Styled from './styles'
 
-const emptyComponent = () => {
+const EmptyComponent = () => {
      return(
        <Styled.EmptyComponent>
          <Text variant='bodyMedium'>Não há itens, adicione!</Text>
@@ -10,4 +10,4 @@ const emptyComponent = () => {
      )
    }
 
-   export default emptyComponent
+   export default EmptyComponent

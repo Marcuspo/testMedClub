@@ -1,21 +1,16 @@
-import React, { useState, useContext, useRef } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { FlatList, View, Pressable, TouchableOpacity } from 'react-native';
 import { Card, Divider, Text } from 'react-native-paper';
 import moment from 'moment';
 import { ThemeContext } from 'styled-components'
 import { useNavigation } from '@react-navigation/native';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-import { RectButton } from 'react-native-gesture-handler';
 
 import * as Styled from './Styles'
-import { EmptyComponent } from './components/EmptyComponent/styles';
+import EmptyComponent  from './components/EmptyComponent/index';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const HomeScreen = () => {
-  const [consultas, setConsultas] = useState([
-    { id: 1, data: new Date('2023-04-15T08:00:00'), medico: 'Dr. João', especialidade: 'Cardiologia', localizacao: 'Rua A, 123' },
-    { id: 2, data: new Date('2023-04-20T10:30:00'), medico: 'Dra. Maria', especialidade: 'Dermatologia', localizacao: 'Rua B, 456' },
-    { id: 3, data: new Date('2023-04-25T15:00:00'), medico: 'Dr. José', especialidade: 'Oftalmologia', localizacao: 'Rua C, 789' },
-  ]);
+  const [appointments, setAppointments] = useState(undefined);
   const [refreshing, setRefresing] = useState(false)
 
   const themeContext = useContext(ThemeContext)
@@ -24,33 +19,49 @@ const HomeScreen = () => {
   const refreshingList = async () => {
     setRefresing(!refreshing);
 
-    await setTimeout(() => setRefresing(!refreshing), 2000)
+    // await setTimeout(() => setRefresing(!refreshing), 2000)
+    loadData();
   }
 
+  const loadData = async () => {
+   const newAppointments = await AsyncStorage.getItem('appointments');
+   console.log(newAppointments)
+
+   if(newAppointments != null){
+    setAppointments(JSON.parse(newAppointments))
+   }
+  }
+
+  useEffect(() => {
+    loadData();
+  }, [appointments])
+
   const renderItem = ({ item }: any) => {
+    // console.log('item', item)
     return (
         <View style={{flex: 1, width: '100%', flexDirection: 'row'}}>
           <Pressable
             style={({pressed}) => [
               {
-                backgroundColor: pressed ? '#898989' : themeContext.background,
                 flex: 1,
               },
-            ]}>
+            ]}
+            onPress={() => console.log('Press', item.id)}
+            >
             <Styled.ItemContainer>
               <View style={{flex: 1}}>
                 <Card mode='elevated'>
                   <Card.Title 
-                    title={item.medico} 
-                    subtitle={item.especialidade} 
+                    title={`Dr: ${item.doctor}`} 
+                    subtitle={`Spec: ${item.specialty}`} 
                     titleNumberOfLines={2}
                     subtitleNumberOfLines={2}
                     titleStyle={{color: themeContext.color}}
                     subtitleStyle={{color: themeContext.color}}
                     right={() => (
                       <View style={{paddingRight: 15}}>
-                        <Styled.ItemDate>Data: {moment(item.data).format('DD/MM/YYYY')}</Styled.ItemDate>
-                        <Styled.ItemHourAndSpecialtyAndLocalization>Hora: {moment(item.data).format('HH:mm')}</Styled.ItemHourAndSpecialtyAndLocalization>
+                        <Styled.ItemDate>Data: {moment(item.date).format('DD/MM/YYYY')}</Styled.ItemDate>
+                        <Styled.ItemHourAndSpecialtyAndLocalization>Hora: {item.time}</Styled.ItemHourAndSpecialtyAndLocalization>
                       </View>
                     )} 
                   />
@@ -83,16 +94,14 @@ const HomeScreen = () => {
     <Styled.Container>
       <Styled.ContainerButton>
         <Styled.PressableButton 
-          onPress={() => navigation.navigate('AddNewRegistry', {
-            navigation
-          })}>
+          onPress={() => navigation.navigate('AddNewRegistry')}>
             Adicionar consulta
         </Styled.PressableButton>
       </Styled.ContainerButton>
 
       <FlatList
-        data={consultas}
-        keyExtractor={(item) => item.id.toString()}
+        data={appointments}
+        keyExtractor={(item) => item.id}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={EmptyComponent}
