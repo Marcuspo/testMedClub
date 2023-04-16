@@ -2,7 +2,7 @@
 
 Aplicativo criado por Marcus Pontes para gerenciamento de consultas médicas. O Consultas App permite que os usuários agendem, gerenciem e acompanhem suas consultas de forma simples e eficiente.
 
-## Funcionalidades :clipboard
+## Funcionalidades :clipboard:
 
 - Listar todas as consultas agendadas do usuário, com a data, hora e médico :memo:
 - Mostrar os detalhes de uma consulta ao clicar nela, incluindo a data, hora, médico, especialidade e localização :mag_right:
@@ -12,7 +12,7 @@ Aplicativo criado por Marcus Pontes para gerenciamento de consultas médicas. O 
 ## Imagens
 
 ![Tela principal](https://i.imgur.com/BQIJf1J.png)
-![Tela com consulta cadastrada](https://i.,imgur.com/LWqSbDY.png)
+![Tela com consulta cadastrada](https://i.imgur.com/LWqSbDY.png)
 ![Tela com modal aberto](https://i.imgur.com/i9bqqwH.png)
 ![Tela de cadastro novas consultas](https://i.imgur.com/cNSARWR.png)
 
