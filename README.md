@@ -11,10 +11,10 @@ Aplicativo criado por Marcus Pontes para gerenciamento de consultas médicas. O 
 
 ## Imagens
 
-![Tela principal](https://imgur.com/BQIJf1J)
-![Tela com consulta cadastrada](https://imgur.com/LWqSbDY)
-![Tela com modal aberto](https://imgur.com/i9bqqwH)
-![Tela de cadastro novas consultas](https://imgur.com/cNSARWR)
+![Tela principal](https://i.imgur.com/BQIJf1J.png)
+![Tela com consulta cadastrada](https://i.,imgur.com/LWqSbDY.png)
+![Tela com modal aberto](https://i.imgur.com/i9bqqwH.png)
+![Tela de cadastro novas consultas](https://i.imgur.com/cNSARWR.png)
 
 ## Como utilizar :question:
 
