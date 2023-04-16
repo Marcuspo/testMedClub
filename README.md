@@ -9,6 +9,13 @@ Aplicativo criado por Marcus Pontes para gerenciamento de consultas médicas. O 
 - Adicionar uma nova consulta, inserindo a data, hora, médico, especialidade e localização :heavy_plus_sign:
 - Excluir uma consulta agendada :x:
 
+## Imagens
+
+![Tela principal](https://imgur.com/BQIJf1J)
+![Tela com consulta cadastrada](https://imgur.com/LWqSbDY)
+![Tela com modal aberto](https://imgur.com/i9bqqwH)
+![Tela de cadastro novas consultas](https://imgur.com/cNSARWR)
+
 ## Como utilizar :question:
 
 Para utilizar o Consultas App, siga os seguintes passos:
@@ -25,12 +32,23 @@ Para utilizar o Consultas App, siga os seguintes passos:
 
 ```yarn start``` or ```yarn android``` or ```yarn iOs```
 
-4. Selecione a plataforma desejada para rodar o aplicativo.
-
 ## Tecnologias utilizadas :computer:
 
 - React Native :atom_symbol:
 - React Navigation :round_pushpin:
+- Styled Components
+- Async-Storage
+- Date time picker
+- Moment
+- React Native modal
+
+## Observações
+
+Algumas observações sobre o projeto
+
+1 - Projeto testado apenas no Android
+2 - Persitência de dados apenas no asyncstorage com limite de dados
+3 - Aplicativo já funcionando a opção de darkMode buscando a opção selecionada nas configurações do usuário.
 
 ## Contribuição :handshake:
 
