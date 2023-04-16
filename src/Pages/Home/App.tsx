@@ -10,8 +10,17 @@ import * as Styled from './Styles'
 import EmptyComponent  from './components/EmptyComponent/index';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+interface AppoitmentsProps {
+  id: string;
+  doctor: string;
+  specialty: string;
+  date: string;
+  time: string;
+  location: string;
+}
+
 const HomeScreen = () => {
-  const [appointments, setAppointments] = useState([]);
+  const [appointments, setAppointments] = useState<AppoitmentsProps[]>([]);
   const [refreshing, setRefresing] = useState(false)
   const [visibleModal, setVisibleModal] = useState(false)
 
