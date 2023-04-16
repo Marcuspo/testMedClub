@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Keyboard } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
@@ -6,7 +6,8 @@ import { Button as ButtonPapper, Snackbar } from 'react-native-paper';
 import moment from 'moment';
 
 import * as Styles from './styles'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { ThemeContext } from 'styled-components';
 
 const RegisterAppointment = () => {
      const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -18,8 +19,9 @@ const RegisterAppointment = () => {
      const [specialty, setSpecialty] = useState('');
      const [location, setLocation] = useState('');
 
+     const useRoutes = useRoute()
      const navigation = useNavigation();
-
+     const themeContext = useContext(ThemeContext)
    
      const showDatePicker = () => {
        setDatePickerVisibility(true);
@@ -84,7 +86,10 @@ const RegisterAppointment = () => {
   return (
     <Styles.Container>
       <Styles.ButtonGoBack>
-        <ButtonPapper mode="outlined" onPress={() => navigation.goBack()}>
+        <ButtonPapper mode="outlined" onPress={() => {
+          useRoutes.params.loadData();
+          navigation.goBack()
+        }}>
           Voltar
         </ButtonPapper>
       </Styles.ButtonGoBack>
@@ -143,7 +148,7 @@ const RegisterAppointment = () => {
         <Snackbar
             visible={snackBarVisible}
             onDismiss={onDismissSnackBar}
-            style={{backgroundColor: 'white'}}
+            style={{backgroundColor: themeContext.color}}
             >
             Consulta salva com sucesso!
         </Snackbar>

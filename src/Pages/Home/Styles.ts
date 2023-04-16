@@ -22,9 +22,20 @@ export const ItemHourAndSpecialtyAndLocalization = styled(Text)`
      color: ${(props: { theme: { color: any; }; }) => props.theme.color};
 `;
 
-export const ItemDate = styled(Text)`
-     font-size: ${RFValue(14)}px;
-     color: ${(props: { theme: { color: any; }; }) => props.theme.color};
+export const ItemDate = styled(ItemHourAndSpecialtyAndLocalization)``
+
+export const ContainerModal = styled.View`
+     width: 100%;
+     padding: 20px;
+     align-items: center;
+     justify-content: center;
+     background-color: ${(props: { theme: { background: any; }; }) => props.theme.background};
+`
+
+export const TextModal = styled(ItemDate)`
+     align-items: center;
+     justify-content: center;
+     margin-bottom: 5px;
 `
 
 export const ContainerButton = styled.View`

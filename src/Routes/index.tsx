@@ -1,6 +1,11 @@
 import React from 'react';
 import { useColorScheme , View} from 'react-native'
 import { ThemeProvider } from 'styled-components'
+import { LogBox } from 'react-native';
+
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
 
 import { NavigationContainer } from '@react-navigation/native';
 import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack';
